@@ -1,0 +1,41 @@
+<div class="container-fluid" style="background-image: linear-gradient(45deg, black 20%,rgb(36, 6, 107) 40%, white 100%);">
+    <div class="row">
+        <div class="col-6 pt-2 pb-2">
+            <img routerLink="/" style="cursor: pointer; mix-blend-mode: difference;" src="https://static.vecteezy.com/system/resources/previews/019/040/346/original/amazon-prime-video-logo-editorial-free-vector.jpg" width="150px">
+        </div>
+        
+        <div *ngIf="!token" class="col-6 pt-2 pb-2 text-right" style="line-height: 50px;">
+            <button routerLink="/login" class="btn mr-3" style="background-color: rgb(89, 34, 218); color:white;">Login</button>
+            <button routerLink="/register" class="btn mr-3" style="background-color: rgb(89, 34, 218); color:white;">Register</button>
+        </div>
+        <div *ngIf="token" class="col-6 pt-2 pb-2 text-right" style="line-height: 50px;">
+          <button (click)="userLogOut()" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">Logout</button>
+          <button routerLink="/my-profile" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">My Account</button>
+          <button routerLink="/my-orders" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">My Orders</button>
+      </div> 
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="text-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo01">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/" style="cursor: pointer;" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li *ngFor="let row of catList" class="nav-item active">
+        <a class="nav-link" routerLink="/product_cat_details/{{row.cat_id}}/{{row.cat_name}}" style="cursor: pointer;"> {{row.cat_name}} <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0 d-flex justify-content-center ">
+      <button routerLink="/cart" *ngIf="token" class="btn btn-lg" style="background-color: rgb(89, 34, 218); color:white;"><i class="fa-solid fa-cart-shopping fa-shake"></i> Cart</button>
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    </form>
+  </div>
+</nav>

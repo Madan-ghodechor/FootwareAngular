@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+    <div class="container" *ngIf="product_details">
+        <div class="row w-100 p-5">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <img class="w-100 h-100" [src]="product_details.product_img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card h-100 p-3">
+                    <div class="card-footer h-100 p-5">
+                        <h5> <img [src]="product_details.cat_img" height="40px" width="40px"> {{product_details.cat_name}}</h5>
+                        <h3> {{product_details.product_name}} </h3>
+                        <h3> {{product_details.price | currency : 'INR'}} /- </h3>
+                        <button (click)="addProdToCart()" *ngIf="product_details.cart=='No'" class="btn" style="background-color: rgb(89, 34, 218); color:white;"> <i class="fa-solid fa-cart-plus fa-bounce"></i> Add To Cart</button>
+
+                        <button *ngIf="product_details.cart=='Yes'" class="btn" style="background-color: rgb(34, 218, 34); color:white;"><i class="fa-solid fa-cart-shopping fa-beat"></i> Already Added To Cart</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<app-footer></app-footer>

@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+    <div class="container-fluid">
+        <form [formGroup]="loginUser" (ngSubmit)="getUserLogin()" >
+            <div class="row justify-content-center p-5">
+                <div class="col-md-5 bg-primary p-3 pb-5 pt-5" style="background-image: linear-gradient(45deg, black 20%,rgb(36, 6, 107) 40%, white 100%);">
+                    <h1 class="text-white">Login Here </h1> <br>
+                    <input formControlName="user_mobile" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Number">
+                    <br>
+                    <input  formControlName="user_password" type="password" class="form-control bg-transparent text-white" placeholder="Enter Your Password">
+                    <br>
+                    <button class="btn" style="background-color: rgb(42, 0, 139); color:white;">Login Now</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<app-footer></app-footer>

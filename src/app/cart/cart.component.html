@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="cart_products==''" style="height: 75vh !important; width: 100%; display: grid; place-items: center;">
+    <h1> Cart Is Empty</h1>
+</div>
+<div *ngIf="cart_products!=''" class="container-fluid">
+    <div class="row w-100">
+        <div class="col-md-9 col-12 ">
+            <div class="row p-5 m-4 w-100">
+                <div class="col-md-12">
+                    <div class="row p-4 border shadow mt-4" *ngFor="let row of cart_products; let i=index" >
+                        <div class="col-md-3">
+                            <img [src]="row.product_img" class="w-100" style="border-radius: 10%;">
+                        </div>
+                        <div class="col-md-9 " style="display: flex; justify-content: center; align-items: center;">
+                            <div style="width: 100%;">
+                                <h5> {{row.product_name}} </h5>
+                                <h5> {{ row.price | currency : 'INR' }} /-</h5>
+                                <h5>Added On {{ row.entry_date }}</h5>
+                                <div style="display: flex; justify-content: left; align-items: start;">
+                                    <button  (click)="decQnt(row.product_econ_cart_id,row.qty)" style="background-color: rgb(89, 34, 218); color:white;" class="btn form-control w-25 text-center d-inline-block" > - </button>
+                                    <input style="background-color: rgb(89, 34, 218); color:white;" class="form-control w-25 text-center d-inline-block" disabled [value]="row.qty" >
+                                    <button (click)="incQnt(row.product_econ_cart_id)" style="background-color: rgb(89, 34, 218); color:white;" class="btn form-control w-25 text-center d-inline-block" > + </button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mt-1" style="box-sizing: border-box;">
+                                        <button (click)="removeFromCart(row.product_econ_cart_id)" style="box-sizing: border-box;" class="btn w-75  btn-primary"> Remove From Cart </button>
+                                    </div>
+                                    <!-- <div class="col-md-12 mt-1" style="box-sizing: border-box;">
+                                        <button style="box-sizing: border-box;" class="btn w-75  btn-success"> Buy </button>
+                                    </div> -->
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p-2 pt-4 ">
+            <br><br><br>
+            <div class="border shadow p-3">
+                <h2>PRODUCTS</h2>
+                <h4>Your Products </h4> <br>
+                <ng-container *ngFor="let row of cart_products; let i=index">
+                    <b>{{i+1}}) {{row.product_name}} </b> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{row.price | currency: 'INR'}} X {{row.qty}}Qnt<br><br>
+                </ng-container>
+                <br>
+                <div class="w-100 text-right">
+                    <h5>{{ total | currency :'INR'}} /- </h5>
+                </div>
+                <br>
+                <button routerLink="/place-order" class="btn btn-block btn-success">Continue To Purchase</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<app-footer></app-footer>

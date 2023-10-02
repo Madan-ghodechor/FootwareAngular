@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+    <div *ngIf="order_info" class="container" style="font-weight: 100;">
+        <div class="row">
+            <div class="col-md-10">
+                <h1 style="font-weight: 100;" >Order Details</h1>
+                <h5 style="font-weight: 100;" >Order Id - {{order_info.product_order_id}} </h5>
+                <h5 style="font-weight: 100;" >Order Date - {{order_info.entry_date | date }} </h5>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-12 mt-4">
+                <h3 class="pb-3" style="font-weight: 100; border-bottom: 1px solid grey;">Billing Info</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            Ship To,
+                            
+                            <h5 class="mt-2">{{order_info.area}},{{order_info.city}}, <br> {{order_info.district}},{{order_info.state}},{{order_info.country}}-{{order_info.pincode}}</h5>
+                        </td>
+                        <td>
+                            Payment Mode
+                            <h5 class="mt-2" > {{order_info.payment_type}} </h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h3 class="pb-3" style="font-weight: 100; border-bottom: 1px solid grey;">Products</h3>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <table class="table ">
+                    <tr>
+                        <th>Sn.</th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Product Rate</th>
+                        <th>Product Qnt</th>
+                        <th>Product Total</th>
+                    </tr>
+                    <tr *ngFor="let row of orderProd_info; let i=index" >
+                        <td> {{i+1}}</td>
+                        <td style="width: 140px;"> <img [src]="row.product_img" width="100%"></td>
+                        <td> {{row.product_name}} </td>
+                        <td> {{row.price | currency : 'INR'}} /- </td>
+                        <td> {{row.qty}} Qnt </td>
+                        <td> {{row.price * row.qty | currency : 'INR' }} /- </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">
+                            <h5>Products Total</h5>
+                        </th>
+                        <th>
+                            {{order_info.ttl_amount | currency : 'INR'}} /-
+                        </th>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+<app-footer></app-footer>

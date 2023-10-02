@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+    <div class="container-fluid">
+        <form [formGroup]="registerForm" (ngSubmit)="SaveForm()" autocomplete="off"  >
+            <div class="row justify-content-center p-5">
+                <div class="col-md-5 bg-primary p-3 pb-5 pt-5" style="background-image: linear-gradient(45deg, black 20%,rgb(36, 6, 107) 40%, white 100%);">
+                    <h1 class="text-white">Register Now  </h1> <br>
+                    <input type="text" formControlName="user_name" class="form-control bg-transparent text-white" placeholder="Enter Your Name">
+                    <br>
+                    <input type="number" formControlName="user_mobile" class="form-control bg-transparent text-white" placeholder="Enter Your Mobile">
+                    <br>
+                    <input type="email" formControlName="user_email" class="form-control bg-transparent text-white" placeholder="Enter Your Email">
+                    <br>
+                    <input type="password" formControlName="user_password" class="form-control bg-transparent text-white" placeholder="Enter Your Password">
+                    <br>
+                    <button class="btn" style="background-color: rgb(42, 0, 139); color:white;">Register Now</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<app-footer></app-footer>
