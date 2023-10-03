@@ -11,7 +11,7 @@ import { PlaceOrderComponent } from './place-order/place-order.component';
 import { OrderDetComponent } from './order-det/order-det.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MyOrderComponent } from './my-order/my-order.component';
-
+ 
 const routes: Routes = [
   { path:'', component:HomeComponent},
   { path:'register', component:RegisterComponent},
