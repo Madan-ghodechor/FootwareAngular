@@ -6,12 +6,10 @@
         
         <div *ngIf="!token" class="col-6 pt-2 pb-2 text-right" style="line-height: 50px;">
             <button routerLink="/login" class="btn mr-3" style="background-color: rgb(89, 34, 218); color:white;">Login</button>
-            <button routerLink="/register" class="btn mr-3" style="background-color: rgb(89, 34, 218); color:white;">Register</button>
+            <!-- <button routerLink="/register" class="btn mr-3" style="background-color: rgb(89, 34, 218); color:white;">Register</button> -->
         </div>
         <div *ngIf="token" class="col-6 pt-2 pb-2 text-right" style="line-height: 50px;">
-          <button (click)="userLogOut()" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">Logout</button>
           <button routerLink="/my-profile" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">My Account</button>
-          <button routerLink="/my-orders" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">My Orders</button>
       </div> 
     </div>
 </div>

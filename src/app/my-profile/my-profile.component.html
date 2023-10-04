@@ -9,16 +9,24 @@
                         <td colspan="2"><h1>My Profile</h1></td>
                     </tr>
                     <tr>
-                        <td style="width: 130px;"><h2 style="font-weight: 300; " >Name</h2></td>
-                        <td> <h4 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_name}}</h4></td>
+                        <td style="width: 130px;"><h5 style="font-weight: 300; " >Name</h5></td>
+                        <td> <h6 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_name}}</h6></td>
                     </tr>
                     <tr>
-                        <td style="width: 130px;"><h2 style="font-weight: 300; " >Number</h2></td>
-                        <td> <h4 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_mobile }}</h4></td>
+                        <td style="width: 130px;"><h5 style="font-weight: 300; " >Number</h5></td>
+                        <td> <h6 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_mobile }}</h6></td>
                     </tr>
                     <tr>
-                        <td style="width: 130px;"><h2 style="font-weight: 300; " >Email</h2></td>
-                        <td> <h4 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_email }}</h4></td>
+                        <td style="width: 130px;"><h5 style="font-weight: 300; " >Email</h5></td>
+                        <td> <h6 style="font-weight: 100;"> <b>:</b> &nbsp;&nbsp; {{userData.user_email }}</h6></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button (click)="userLogOut()" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">Logout</button>
+                        </td>
+                        <td>
+                            <button routerLink="/my-orders" class="btn mr-3 hide_print" style="background-color: rgb(89, 34, 218); color:white;">My Orders</button> 
+                        </td>
                     </tr>
                 </table>
             </div>

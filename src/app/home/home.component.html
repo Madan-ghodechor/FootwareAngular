@@ -29,8 +29,8 @@
         </ng-container>
     </ol>
     <div class="carousel-inner">
-      <div *ngFor="let row of slider_det; let i=index" [class.active]="i==0" class="carousel-item ">
-        <img src="{{row.slider_img}}" class="d-block w-100" style="height: 80vh; background-size: contain;"  alt="{{row.slider_head}}">
+      <div *ngFor="let row of slider_det; let i=index" [class.active]="i==0" class="carousel-item">
+        <img src="{{row.slider_img}}" class="d-block w-100 carousel-img"  alt="{{row.slider_head}}">
         <div class="carousel-caption d-none d-md-block">
             <h2>{{row.slider_head}}</h2>
             <a class="btn btn-primary" href="{{row.slider_btn}}"> View </a>
